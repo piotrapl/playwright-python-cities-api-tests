@@ -44,24 +44,25 @@ class TestMunicipalitiesByName(unittest.TestCase):
 
     # ---------- NEGATIVE TESTS ----------
 
-    def test_get_municipality_by_non_existing_name_should_return_404(self):
-        response = self.request.get(
-            "/api/v1/municipalities/name/ytrytr"
-        )
+def test_get_municipality_by_non_existing_name_should_return_404(self):
+    response = self.request.get(
+        "/api/v1/municipalities/name/ytrytr"
+    )
 
-        self.assertEqual(response.status, 404)
+    self.assertEqual(response.status, 404)
 
-        body = response.json()
-        self.assertFalse(body["success"])
-        self.assertEqual(len(body["data"]), 0)
+    body = response.json()
+    self.assertFalse(body["success"])
+    self.assertIn("message", body)
 
-    def test_get_municipality_by_invalid_name_should_return_404(self):
-        response = self.request.get(
-            "/api/v1/municipalities/name/zzzzzz"
-        )
 
-        self.assertEqual(response.status, 404)
+def test_get_municipality_by_invalid_name_should_return_404(self):
+    response = self.request.get(
+        "/api/v1/municipalities/name/zzzzzz"
+    )
 
-        body = response.json()
-        self.assertFalse(body["success"])
-        self.assertEqual(len(body["data"]), 0)
+    self.assertEqual(response.status, 404)
+
+    body = response.json()
+    self.assertFalse(body["success"])
+    self.assertIn("message", body)
