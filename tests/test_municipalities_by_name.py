@@ -53,7 +53,10 @@ class TestMunicipalitiesByName(unittest.TestCase):
 
         body = response.json()
         self.assertFalse(body["success"])
-        self.assertIn("message", body)
+   
+       # validate error object
+        self.assertIn("error", body)
+        self.assertIn("message", body["error"])
 
 
     def test_get_municipality_by_invalid_name_should_return_404(self):
