@@ -1,9 +1,6 @@
 # playwright-python_miasta_powiaty_wojew-api-tests
 # Testy atomatyczne serwisu RESTful API dla polskich jednostek samorządu terytorialnego (JST) - Playwright/Python/unittest
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
-![Playwright](https://img.shields.io/badge/Playwright-Testy%20API-green)
-
 ## Zakres projektu
 
 - Automatyzacja testów **REST API**
