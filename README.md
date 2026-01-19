@@ -1,7 +1,7 @@
-# playwright-python_miasta_powiaty_wojew-api-tests
-# Testy atomatyczne serwisu RESTful API dla polskich jednostek samorządu terytorialnego (JST) - Playwright/Python/unittest
+## Wprowadzenie (intro)
+Testy atomatyczne serwisu RESTful API dla polskich jednostek samorządu terytorialnego (JST) - Playwright/Python/unittest
 
-## Zakres projektu
+## Zakres projektu (Project's scope)
 
 - Automatyzacja testów **REST API**
 - Testy endpointów typu **GET**
@@ -12,21 +12,21 @@
   Raport zostanie zapisany w katalogu reports/
 - Projekt gotowy do uruchomienia w **CI**
 
-## Technologie
+## Technologie (Techmologies)
 
 - Python 3.9+
 - Playwright (APIRequestContext)
 - unittest
 - HTML Test Runner
 
-## Wymagania
+## Wymagania (Requirements)
 
 - Python **3.9+**
 - pip
 - Dostęp do Internetu
 - Windows / macOS / Linux
 
-## Uruchomienie projektu
+## Uruchomienie projektu (Running the project)
 
 ```bash
 git clone <adres-repozytorium>
@@ -34,3 +34,4 @@ cd api-playwright-polish-gov
 pip install -r requirements.txt
 playwright install
 python run_tests.py
+```
