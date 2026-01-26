@@ -12,7 +12,7 @@ Testy atomatyczne serwisu RESTful API dla polskich jednostek samorządu terytori
   Raport zostanie zapisany w katalogu reports/
 - Projekt gotowy do uruchomienia w **CI**
 
-## Technologie (Techmologies)
+## Technologie (Technologies)
 
 - Python 3.9+
 - Playwright (APIRequestContext)
