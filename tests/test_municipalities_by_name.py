@@ -1,80 +1,42 @@
-import unittest
-from urllib import response
-from playwright.sync_api import sync_playwright
+import pytest
+from tests.test_data import POSITIVE_CITIES, NEGATIVE_CITIES
 
 
-class TestMunicipalitiesByName(unittest.TestCase):
+@pytest.mark.parametrize("city", POSITIVE_CITIES)
+def test_get_municipality_by_name_should_return_data(api_request, city):
+    response = api_request.get(f"/api/v1/municipalities/name/{city}")
 
-    @classmethod
-    def setUpClass(cls):
-        cls.base_url = "https://local-gov-units.polandapi.com"
-        cls.playwright = sync_playwright().start()
-        cls.request = cls.playwright.request.new_context(
-            base_url=cls.base_url,
-            ignore_https_errors=True  # API uses expired SSL certificate
-        )
+    assert response.status == 200
 
-    @classmethod
-    def tearDownClass(cls):
-        cls.request.dispose()
-        cls.playwright.stop()
-
-    # ---------- POSITIVE TESTS ----------
-
-    def test_get_municipality_by_name_lodz_should_return_data(self):
-        response = self.request.get(
-            "/api/v1/municipalities/name/Lodz"
-        )
-
-        self.assertEqual(response.status, 200)
-
-        body = response.json()
-        self.assertTrue(body["success"])
-        self.assertGreater(len(body["data"]), 0)
-
-    def test_get_municipality_by_name_warszawa_should_return_data(self):
-        response = self.request.get(
-            "/api/v1/municipalities/name/Warszawa"
-        )
-
-        self.assertEqual(response.status, 200)
-
-        body = response.json()
-        self.assertTrue(body["success"])
-        self.assertGreater(len(body["data"]), 0)
-
-    # ---------- NEGATIVE TESTS ----------
-
-    def test_get_municipality_by_non_existing_name_should_return_404(self):
-        response = self.request.get(
-            "/api/v1/municipalities/name/ytrytr"
-        )
-
-        self.assertEqual(response.status, 404)
-
-        body = response.json()
-        self.assertFalse(body["success"])
-
-        # validate error object
-        self.assertIn("error", body)
-        self.assertIn("message", body["error"])
+    body = response.json()
+    assert body.get("success") is True
+    assert "data" in body
+    assert len(body["data"]) > 0
 
 
-    def test_get_municipality_with_empty_name_should_return_bad_request(self):
-        response = self.request.get(
-        "/api/v1/municipalities/name/"
-    )
+@pytest.mark.parametrize("city", NEGATIVE_CITIES)
+def test_get_municipality_by_non_existing_name_should_return_404(api_request, city):
+    response = api_request.get(f"/api/v1/municipalities/name/{city}")
 
-        # 1. HTTP status
-        self.assertEqual(response.status, 404)
+    assert response.status == 404
 
-        body = response.json()
+    body = response.json()
+    assert body.get("success") is not True
 
-        # 2. success is false (or at least not true)
-        self.assertIn("success", body)
-        self.assertNotEqual(body["success"], True)
+    # API error contract is nested: error.code / error.message
+    assert "error" in body
+    assert body["error"].get("code") in {"NOT_FOUND", "BAD_REQUEST"}
+    assert "message" in body["error"]
 
-        # 3. error block validation
-        self.assertIn("error", body)
-        self.assertIn("code", body["error"])
-        self.assertEqual(body["error"]["code"], "BAD_REQUEST")
+
+def test_get_municipality_with_empty_name_should_return_404_and_bad_request(api_request):
+    response = api_request.get("/api/v1/municipalities/name/")
+
+    # As requested
+    assert response.status == 404
+
+    body = response.json()
+    assert body.get("success") is not True
+
+    assert "error" in body
+    assert body["error"].get("code") == "BAD_REQUEST"
