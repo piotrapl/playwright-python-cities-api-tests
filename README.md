@@ -7,11 +7,6 @@ Designed as a portfolio-quality example for QA / Automation Engineer roles.
 
 ---
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
-![Playwright](https://img.shields.io/badge/Playwright-API%20Testing-green)
-![Pytest](https://img.shields.io/badge/pytest-framework-yellowgreen)
-![CI](https://img.shields.io/github/actions/workflow/status/<TWOJ_GITHUB_USERNAME>/<NAZWA_REPO>/ci.yml)
-
 Projekt demonstracyjny automatyzacji testów **REST API** przygotowany z myślą o  
 **stanowiskach QA Engineer / Automation Engineer**.
 
