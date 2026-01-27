@@ -68,11 +68,12 @@ Skopiuj kod
 
 ## Instalacja
 
-1. Klonowanie repozytorium:
+#### Klonowanie repozytorium:
  ```bash
  git clone <adres-repozytorium>
  cd api-playwright-polish-gov
-Instalacja zależności:
+ ```
+ #### Instalacja zależności:
 
 bash
 Skopiuj kod
@@ -82,12 +83,12 @@ Instalacja Playwright:
 bash
 Skopiuj kod
 python -m playwright install
-Uruchamianie testów
-Uruchomienie testów (bez raportu):
+Uruchamianie testó
+#### Uruchomienie testów (bez raportu):
 bash
 Skopiuj kod
 pytest
-Uruchomienie testów z raportem HTML:
+#### Uruchomienie testów z raportem HTML:
 bash
 Skopiuj kod
 pytest --html=reports/report.html --self-contained-html
@@ -95,7 +96,7 @@ Po zakończeniu testów raport HTML zostanie wygenerowany w katalogu:
 
 Skopiuj kod
 reports/
-Struktura projektu
+### Struktura projektu
 text
 Skopiuj kod
 api-playwright-polish-gov/
@@ -109,7 +110,7 @@ api-playwright-polish-gov/
 ├── pytest.ini
 ├── requirements.txt
 └── README.md
-Możliwe rozszerzenia (roadmapa)
+### Możliwe rozszerzenia (roadmapa)
 Walidacja schematu odpowiedzi (JSON Schema)
 
 Parametryzacja środowisk (dev / test / prod)
