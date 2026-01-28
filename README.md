@@ -1,4 +1,5 @@
-# Playwright API Tests – Polskie Jednostki Samorządu Terytorialnego
+# Testy API serwisu z danymi o polskich jednostkach samorządu terytorialnego
+  https://local-gov-units.polandapi.com
 
 **English (short abstract):**  
 A minimal API test automation project using **Playwright (Python)** and **pytest**.  
