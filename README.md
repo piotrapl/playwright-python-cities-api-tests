@@ -66,7 +66,7 @@ Testowany jest publiczny endpoint API polskich jednostek samorządu terytorialne
  ```bash
  git clone <adres-repozytorium>
  cd playwright-python-miasta-api-tests
- ```bash
+ ```
 
 #### Instalacja zależności (Installing dependencies)
 pip install -r requirements.txt
