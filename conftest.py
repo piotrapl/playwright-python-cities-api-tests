@@ -5,8 +5,8 @@ from playwright.sync_api import sync_playwright
 @pytest.fixture(scope="session")
 def api_request():
     """
-    Shared APIRequestContext for all tests (fast).
-    ignore_https_errors=True because the API SSL cert may be expired.
+    Wspólny kontekst APIRequestContext dla wszystkich testów (szybki).
+    ignore_https_errors=True ponieważ certyfikat SSL API może być nieaktualny.
     """
     base_url = "https://local-gov-units.polandapi.com"
 
