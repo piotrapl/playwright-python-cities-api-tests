@@ -28,9 +28,8 @@ Testowany jest publiczny endpoint API polskich jednostek samorządu terytorialne
 - Jeden endpoint:
 /api/v1/municipalities/name/{name}
 
-yaml
 
-- Scenariusze:
+## Scenariusze:
 - poprawna nazwa (pozytywne)
 - nieistniejąca nazwa (404)
 - niepoprawna nazwa (404)
@@ -43,7 +42,7 @@ yaml
 
 ---
 
-## Technologie
+## Technologie (tech stack)
 
 - Python **3.9+**
 - Playwright (APIRequestContext)
@@ -52,21 +51,21 @@ yaml
 
 ---
 
-## Wymagania
+## Wymagania (test evironment reqiurements)
 
 - Python **3.9 lub nowszy**
 - pip
-- Dostęp do Internetu
-- System operacyjny: Windows / macOS / Linux
+- Pytest
+- OS: Windows / macOS / Linux
 
 ---
 
-## Instalacja
+## Instalacja (installing the project locally)
 
 #### Klonowanie repozytorium:
  ```bash
  git clone <adres-repozytorium>
- cd api-playwright-polish-gov
+ cd playwright-python-miasta-api-tests
  ```bash
 
 #### Instalacja zależności (Installing dependencies)
