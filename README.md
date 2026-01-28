@@ -100,19 +100,19 @@ api-playwright-polish-gov/
 └── README.md
 ```
 ### Możliwe rozszerzenia (possible extentions)
-Walidacja schematu odpowiedzi (JSON Schema)
+- Walidacja schematu odpowiedzi z usługi (JSON Schema)
 
-Parametryzacja środowisk (dev / test / prod)
+- Parametryzacja środowisk, jeśłi jest ich więcej (dev / test / prod)
 
-Rozszerzenie testów o kolejne endpointy
+- Rozszerzenie testów o kolejne endpointy
 
-Integracja z GitHub Actions (CI)
+- Integracja z GitHub Actions (CI)
 
-Raportowanie Allure
+- Raportowanie Allure
 
-Testy wydajnościowe API
+- Testy wydajnościowe API
 
-Obsługa timeoutów i retry
+- Obsługa timeoutów i retry
 
 ### Dlaczego Pytest a nie unittest ? (Why Pytest, not unittest ?)
 
