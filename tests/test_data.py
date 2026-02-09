@@ -4,6 +4,10 @@ POSITIVE_CITIES = [
 ]
 
 NEGATIVE_CITIES = [
-    "Cracow",
-    "Krackow",
+    "Cracowcity",
+    "Krackówek",
+]
+
+EMPTY_NAME = [
+    "",
 ]
