@@ -30,14 +30,15 @@ Testowany jest publiczny endpoint API polskich jednostek samorządu terytorialne
 
 
 ## Scenariusze:
-- poprawna nazwa (pozytywne)
-- nieistniejąca nazwa (404, BED_REQUEST)
-- niepoprawna nazwa (404)
-- pusty parametr ścieżki (BAD_REQUEST)
-- Walidacja:
+1. poprawna nazwa (pozytywne)
+2. nieistniejąca nazwa (negatywne: 404, NOT_FOUND)
+3. pusty parametr zamiast nazwy (jeden negatywny: 400, BAD_REQUEST)
+Walidacja:
 - kodów HTTP
 - pól biznesowych (`success`)
-- struktury błędów (`error.code`, `error.message`)
+- struktury błędów: 
+    istnienia i treści `error.code`, 
+    istnienia (ale nie treści) `error.message`
 - Raportowanie wyników w **HTML**
 
 ---
@@ -79,7 +80,7 @@ python -m playwright install
 ```bash
 pytest
 ```
-#### Uruchomienie testów z raportem HTML:
+#### Uruchomienie testów z generowaniem raportu HTML:
 ```bash
 pytest --html=reports/report.html --self-contained-html
 ```
@@ -103,7 +104,7 @@ api-playwright-polish-gov/
 ### Możliwe rozszerzenia (possible extentions)
 - Walidacja schematu odpowiedzi z usługi (JSON Schema)
 
-- Parametryzacja środowisk, jeśłi jest ich więcej (dev / test / prod)
+- Parametryzacja środowisk, jeśli jest ich więcej (dev / test / prod)
 
 - Rozszerzenie testów o kolejne endpointy
 
@@ -117,8 +118,8 @@ api-playwright-polish-gov/
 
 ### Dlaczego Pytest a nie unittest ? (Why Pytest, not unittest ?)
 
-- Mniej boilerplate’u – brak klas testowych i `self`, testy to zwykłe funkcje
+- Mniej powtarzalnego kodu (tzw. boilerplate’u)
 - Czytelniejsze asercje – `assert` z automatycznym, bogatym opisem błędów
 - Parametryzacja testów wbudowana we framework (`@pytest.mark.parametrize`)
-- Potężny system fixture do współdzielenia danych i setupu testów
-- Bogaty ekosystem pluginów (raporty, parallel run, coverage)
+- System fixture do współdzielenia danych i setupu testów
+- Duży wybór pluginów, np. do raportów
