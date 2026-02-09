@@ -32,7 +32,8 @@ def test_get_municipality_by_non_existing_name_should_return_404(api_request, ci
 
     # kontrakt błędu API jest zagnieżdżony: error.code / error.message
     assert "error" in body
-    assert body["error"].get("code").equals("NOT_FOUND")
+    # assert body["error"].get("code").equals("NOT_FOUND")
+    assert body["error"].get("code") == "NOT_FOUND"
     assert "message" in body["error"]
 
 # Test negatywny dla tego samego endpointu
