@@ -5,5 +5,5 @@ POSITIVE_CITIES = [
 
 NEGATIVE_CITIES = [
     "Cracowcity",
-    "yydydyhff",
+    "Krackówek",
 ]
