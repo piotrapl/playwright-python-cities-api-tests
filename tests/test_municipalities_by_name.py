@@ -1,5 +1,5 @@
 import pytest
-from tests.test_data import POSITIVE_CITIES, NEGATIVE_CITIES
+from tests.test_data import MIASTA_POSITIVE, MIASTA_NEGATIVE
 
 # Testy dla endpointu pobierającego jednostki samorządowe po nazwie miasta
 # Asercje sprawdzają, czy odpowiedzi API są zgodne z oczekiwaniami dla istniejących i nieistniejących nazw miast.
@@ -7,7 +7,7 @@ from tests.test_data import POSITIVE_CITIES, NEGATIVE_CITIES
 # - odpowiednik pętli for dla testów jednostkowych 
 #   uruchamia test dla każdej wartości w POSITIVE_CITIES
 
-@pytest.mark.parametrize("city", POSITIVE_CITIES)
+@pytest.mark.parametrize("city", MIASTA_POSITIVE)
 def test_get_municipality_by_name_should_return_data(api_request, city):
     response = api_request.get(f"/api/v1/municipalities/name/{city}")
 
@@ -21,7 +21,7 @@ def test_get_municipality_by_name_should_return_data(api_request, city):
 # Test negatywny dla tego samego endpointu
 # Spawdza, czy odpowiedź API jest poprawna dla NIEISTNIEJĄCEJ nazwy miasta
 
-@pytest.mark.parametrize("city", NEGATIVE_CITIES)
+@pytest.mark.parametrize("city", MIASTA_NEGATIVE)
 def test_get_municipality_by_non_existing_name_should_return_404_not_found(api_request, city):
     response = api_request.get(f"/api/v1/municipalities/name/{city}")
 

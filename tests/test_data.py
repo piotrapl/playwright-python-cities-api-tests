@@ -1,9 +1,9 @@
-POSITIVE_CITIES = [
+MIASTA_POSITIVE = [
     "Swietochlowice",
     "Kraków",
 ]
 
-NEGATIVE_CITIES = [
-    "Cracowcity",
-    "Krackówek",
+MIASTA_NEGATIVE = [
+    "Myslowitz",
+    "Gkhxsfg",
 ]
