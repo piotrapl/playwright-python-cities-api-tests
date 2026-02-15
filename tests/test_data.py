@@ -4,7 +4,6 @@
 # MIASTA_NEGATIVE - zawiera nieistniejące lub błędnie zapisan nazwy
 
 MIASTA_POSITIVE = [
-    "Katowice",
     "Swietochlowice",
     "Krakozja",
 ]
