@@ -5,7 +5,7 @@
 
 MIASTA_POSITIVE = [
     "Swietochlowice",
-    "Krakozja",
+    "Kraków",
 ]
 
 MIASTA_NEGATIVE = [
