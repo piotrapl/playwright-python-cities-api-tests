@@ -31,7 +31,7 @@ def api_request():
 #   - zarządzana przez pytest, który dba o jej tworzenie i usuwanie
 #   - jest wstrzykiwana do metod testowych jako argument, 
 #     dzięki czemu testy mogą korzystać z tego samego kontekstu APIRequestContext
-# 2. api_request to też: instancja klasy: playwright.sync_api.APIRequestContext
+# 2. to też: instancja klasy: playwright.sync_api.APIRequestContext
 #    APIRequestContext to:
 #          klasa z modułu playwright.sync_api,
 #    - reprezentująca sesję klienta HTTP używaną do wysyłania zapytań API
@@ -40,4 +40,14 @@ def api_request():
 #    APIRequestContext  ->  klasa
 #    api_request        ->  intancja tej klasy
 
-
+# 3. to też: fikcyjny klient API (Fake API client) - określenie mniej formalne, bardziej opisowe
+#     technicznie niezbyt precyzyjne, bo:
+#       - nie mockuje niczego,
+#       - wysyła prawdziwe requesty HTTP
+#       - nie jest to stub (atrapa, zaślepka), coś co udaje prawdziwy obiekt, ale nie wykonuje jego rzeczywistej funkcjonalności,
+#  
+#       api_request: A. używa prawdziwego endpointu, B. wykonuje prawdziwe wywołania sieciowe,
+#               C. waliduje prawdziwe response'y,
+#     - nie jest to mock (obiekt testowy, który rejestruje interakcje i pozwala na asercje dotyczące tych interakcji),  
+# # ale jest "fikcyjny" w sensie, że nie jest to prawdziwy klient API,
+#      - api_request to instancja klasy APIRequestContext, a nie pełnoprawny klient API,
