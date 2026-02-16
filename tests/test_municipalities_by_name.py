@@ -6,6 +6,13 @@ from tests.test_data import MIASTA_POSITIVE, MIASTA_NEGATIVE
 # @pytest.mark.parametrize("city", POSITIVE_CITIES)
 # - odpowiednik pętli for dla testów jednostkowych 
 #   uruchamia test dla każdej wartości w POSITIVE_CITIES
+# api_request - fikcyjny klient API, przekazywany do testów jako argument (fixture)
+#   umożliwia wykonywanie zapytań HTTP do testowanego API,
+#   dzięki czemu testy mogą sprawdzać, czy API działa poprawnie dla różnych danych wejściowych.
+# fikcyny klient - bo nie jest to prawdziwe API, ale symulacja jego działania, 
+#   pozwala na testowanie logiki aplikacji bez konieczności uruchamiania całego środowiska API.
+
+# Test pozytywny 
 
 @pytest.mark.parametrize("city", MIASTA_POSITIVE)
 def test_get_municipality_by_name_should_return_data(api_request, city):
@@ -19,7 +26,7 @@ def test_get_municipality_by_name_should_return_data(api_request, city):
     assert len(body["data"]) > 0
 
 # Test negatywny dla tego samego endpointu
-# Spawdza, czy odpowiedź API jest poprawna dla NIEISTNIEJĄCEJ nazwy miasta
+# Spawdza, czy odpowiedź API jest poprawna (status==404, success==false)dla NIEISTNIEJĄCEJ nazwy miasta
 
 @pytest.mark.parametrize("city", MIASTA_NEGATIVE)
 def test_get_municipality_by_non_existing_name_should_return_404_not_found(api_request, city):
