@@ -45,9 +45,9 @@ def api_request():
 #       - nie mockuje niczego,
 #       - wysyła prawdziwe requesty HTTP
 #       - nie jest to stub (atrapa, zaślepka), coś co udaje prawdziwy obiekt, ale nie wykonuje jego rzeczywistej funkcjonalności,
-#  
-#       api_request: A. używa prawdziwego endpointu, B. wykonuje prawdziwe wywołania sieciowe,
-#               C. waliduje prawdziwe response'y,
-#     - nie jest to mock (obiekt testowy, który rejestruje interakcje i pozwala na asercje dotyczące tych interakcji),  
-# # ale jest "fikcyjny" w sensie, że nie jest to prawdziwy klient API,
-#      - api_request to instancja klasy APIRequestContext, a nie pełnoprawny klient API,
+#       także:
+#       - używa prawdziwego endpointu,
+#       - wykonuje prawdziwe wywołania sieciowe,
+# waliduje prawdziwe response'y,
+#   
+#     ale jest to określenie użyte w celu podkreślenia, że nie jest to prawdziwy klient API,
