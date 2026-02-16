@@ -1,3 +1,4 @@
+import playwright
 import pytest
 from playwright.sync_api import sync_playwright
 
@@ -22,3 +23,21 @@ def api_request():
         )
         yield request_context
         request_context.dispose()
+
+# api_request to:
+# 1. technicznie: fikstura (pytest fixture), która:
+#   - jest funkcją
+#   - jest oznaczona dekoratorem @pytest.fixture, 
+#   - zarządzana przez pytest, który dba o jej tworzenie i usuwanie
+#   - jest wstrzykiwana do metod testowych jako argument, 
+#     dzięki czemu testy mogą korzystać z tego samego kontekstu APIRequestContext
+# 2. api_request to też: instancja klasy: playwright.sync_api.APIRequestContext
+#    APIRequestContext to:
+#          klasa z modułu playwright.sync_api,
+#    - reprezentująca sesję klienta HTTP używaną do wysyłania zapytań API
+#    - inaczej: kontekst do wykonywania zapytań HTTP do testowanego API,
+#               współdzielony między testami, 
+#    APIRequestContext  ->  klasa
+#    api_request        ->  intancja tej klasy
+
+

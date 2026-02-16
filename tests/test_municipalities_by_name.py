@@ -7,6 +7,8 @@ from tests.test_data import MIASTA_POSITIVE, MIASTA_NEGATIVE
 # - odpowiednik pętli for dla testów jednostkowych 
 #   uruchamia test dla każdej wartości w POSITIVE_CITIES
 # api_request - fikcyjny klient API, przekazywany do testów jako argument (fixture)
+# api_request in english - API request context, a fixture that provides a shared context for making API requests in tests.
+# fake client - because it's not a real API, but a simulation of its behavior, allowing us to test the application logic without needing to run the entire API environment.
 #   umożliwia wykonywanie zapytań HTTP do testowanego API,
 #   dzięki czemu testy mogą sprawdzać, czy API działa poprawnie dla różnych danych wejściowych.
 # fikcyny klient - bo nie jest to prawdziwe API, ale symulacja jego działania, 
