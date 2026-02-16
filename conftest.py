@@ -48,6 +48,9 @@ def api_request():
 #       także:
 #       - używa prawdziwego endpointu,
 #       - wykonuje prawdziwe wywołania sieciowe,
-# waliduje prawdziwe response'y,
-#   
-#     ale jest to określenie użyte w celu podkreślenia, że nie jest to prawdziwy klient API,
+#       - waliduje prawdziwe response'y,
+# precyzyjniej niż 'fake API client' można by powiedzieć, że to:
+#       1. wrapper na klienta API = warstwa opakowująca klienta API
+#       2. fikstura (fxture) klienta HTTP (HTTP client fixture)
+#       3. współdzielony kontekst zapytań HTTP do testowanego API (shared API request context)  
+#      ale jest to określenie użyte w celu podkreślenia, że nie jest to prawdziwy klient AP
